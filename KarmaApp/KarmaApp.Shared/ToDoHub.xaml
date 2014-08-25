@@ -1,0 +1,41 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KarmaApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UIFragments="using:UIFragments"
+    x:Class="KarmaApp.ToDoHub"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+
+    d:DesignWidth="400">
+
+	<Grid>
+		<ScrollViewer x:Name="scroller"  Margin="0,79,0,0">
+			<ItemsControl  ItemsSource="{Binding ToDos}" VerticalAlignment="Top">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<local:ToDoControl Margin="0,12,0,0" />
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel>
+							<StackPanel.ChildrenTransitions>
+								<TransitionCollection>
+									<AddDeleteThemeTransition/>
+									<RepositionThemeTransition/>
+								</TransitionCollection>
+							</StackPanel.ChildrenTransitions>
+						</StackPanel>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+
+		</ScrollViewer>
+
+		<UIFragments:FloatingTextBox x:Name="textBox" VerticalAlignment="Top" Width="Auto" Foreground="#FF0083E3" BorderBrush="#FF0083E3" Margin="7,0" Header="Enter new to-do name" TextBoxPadding="7,5,8,10"/>
+
+	</Grid>
+</UserControl>

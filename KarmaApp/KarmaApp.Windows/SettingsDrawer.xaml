@@ -1,0 +1,34 @@
+﻿<SettingsFlyout
+    x:Class="KarmaApp.SettingsDrawer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KarmaApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    IconSource="Assets/SmallLogo.png"
+    Title="SettingsDrawer"
+    d:DesignWidth="346">
+
+    <!-- This StackPanel acts as a root panel for vertical layout of the content sections -->
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+
+        <!-- The StackPanel(s) below define individual content sections -->
+
+        <!-- Content Section 1-->
+        <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
+        	<ToggleSwitch Header="Tile background" OffContent="Karma orange" OnContent="Transparent" IsOn="{Binding Transparent, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+        	<TextBox x:Name="txtDefault" Margin="0,20,0,0" TextWrapping="Wrap" Text="{Binding DefaultValue, Mode=TwoWay}" VerticalAlignment="Stretch" Header="Default karma value" InputScope="Number"/>
+        	<CheckBox Content="Delete todos on completion" VerticalAlignment="Stretch" Margin="0,20,0,0" IsChecked="{Binding DeleteOnCheck, Mode=TwoWay}"/>
+        	<Button x:Name="btnReset" Content="Reset all data" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0"/>
+
+            <!-- Section 1 header -->
+
+            <!-- Section 1 body -->
+
+        </StackPanel>
+
+        <!-- Define more Content Sections below as necessary -->
+
+    </StackPanel>
+</SettingsFlyout>

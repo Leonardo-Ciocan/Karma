@@ -1,0 +1,3 @@
+MainPackage=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.Windows\bin\Release\KarmaApp.Windows_1.1.0.15_Bundle\KarmaApp.Windows_1.1.0.15_AnyCPU.appx
+SymbolPackage=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.Windows\AppPackages\KarmaApp.Windows_1.1.0.15_Test\KarmaApp.Windows_1.1.0.15_AnyCPU.appxsym
+ResourcePack=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.Windows\bin\Release\KarmaApp.Windows_1.1.0.15_Bundle\KarmaApp.Windows_1.1.0.15_scale-180.appx

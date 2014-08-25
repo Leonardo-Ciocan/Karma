@@ -1,0 +1,341 @@
+﻿<Page
+    x:Class="KarmaApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+        xmlns:cont="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:local="using:KarmaApp" RequestedTheme="Light">
+	<Page.Resources>
+		<Flyout x:Key="TutorialFlyout">
+			<Grid Height="640" Width="400">
+				<FlipView x:Name="flipView" Margin="0" SelectedIndex="-1" Background="white">
+
+					<FlipViewItem IsSelected="True">
+						<Grid>
+							<StackPanel Margin="0">
+								<StackPanel.ChildrenTransitions>
+									<TransitionCollection>
+										<EntranceThemeTransition/>
+									</TransitionCollection>
+								</StackPanel.ChildrenTransitions>
+								<Grid x:Name="grid" Height="105" Margin="0" Background="#FFFFBD00">
+									<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="KARMA" FontFamily="Segoe UI Light" FontSize="80" TextAlignment="Center" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center">
+										<TextBlock.Foreground>
+											<SolidColorBrush Color="White"/>
+										</TextBlock.Foreground>
+									</TextBlock>
+								</Grid>
+								<TextBlock Text="Karma , an app that helps you balance your life." TextWrapping="Wrap" Foreground="#FFF39200" TextAlignment="Center" FontWeight="Light" FontSize="26.667"/>
+								<TextBlock TextWrapping="Wrap" Margin="10,30,10,0" FontFamily="Segoe WP" FontSize="21.333" TextAlignment="Center" FontWeight="Light" VerticalAlignment="Top" >
+									<Run Foreground="Black" Text="Karma can be "/>
+									<Run Foreground="#FFFFBD00" Text="gained "/>
+									<Run Foreground="Black" Text="and "/>
+									<Run Foreground="#FFAD0B0B" Text="lost"/>
+									<LineBreak/>
+									<Run Foreground="#FFAD0B0B"/>
+									<LineBreak/>
+									<Run Foreground="Black" Text="There are "/>
+									<Run Foreground="#FF008725" Text="good "/>
+									<Run Foreground="Black" Text="and "/>
+									<Run Foreground="#FFFF0036" Text="bad "/>
+									<Run Foreground="Black" Text="habits"/>
+									<LineBreak/>
+									<Run/>
+									<LineBreak/>
+									<Run Foreground="Black" Text="There are things "/>
+									<Run Foreground="#FF0C7AFF" Text="to do"/>
+									<LineBreak/>
+									<Run Foreground="#FF0C7AFF"/>
+									<LineBreak/>
+									<Run Foreground="#FFFFBD00" Text="Rewards "/>
+									<Run Foreground="Black" Text="can be earned with hard work"/>
+									<Run Text="."/>
+								</TextBlock>
+							</StackPanel>
+							<Border BorderBrush="#FFBDBDBD" BorderThickness="0,1,0,0" Margin="0,241,0,377" VerticalAlignment="Top"/>
+							<Border BorderBrush="#FFBDBDBD" BorderThickness="0,1,0,0" Margin="0,305,0,0" VerticalAlignment="Top"/>
+							<Border BorderBrush="#FFBDBDBD" BorderThickness="0,1,0,0" Margin="0,366,0,0" VerticalAlignment="Top"/>
+							<TextBlock x:Name="skip_Copy" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Swipe to learn about karma" VerticalAlignment="Bottom" Foreground="#FF9C9C9C" FontSize="20" Margin="0,0,0,100"/>
+						</Grid>
+					</FlipViewItem>
+
+		<!--LayoutRoot is the root grid where all page content is placed-->
+					<FlipViewItem IsSelected="True">
+						<Grid Margin="0">
+							<StackPanel Margin="10,30,10,0" Orientation="Vertical">
+								<Grid Margin="0" Height="100" HorizontalAlignment="Center">
+									<TextBlock FontSize="53.333" VerticalAlignment="Center" Margin="0" Text="&#xE14C;" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Tag="1" Foreground="#FF0E7C1A" />
+									<Ellipse HorizontalAlignment="Center" Height="100" Stroke="#FF0E7C1A" VerticalAlignment="Top" Width="100"/>
+								</Grid>
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2BBD00" FontFamily="Segoe WP" VerticalAlignment="Top" Margin="0,30,0,0" FontSize="26.667" TextAlignment="Center" FontWeight="Light" >
+									<Run Text="A "/>
+									<Run FontStyle="Italic" Text="habit "/>
+									<Run Text="is something you do often"/>
+								</TextBlock>
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2BBD00" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="24" TextAlignment="Center" Text="Good habits examples" HorizontalAlignment="Left" FontWeight="Light" Margin="0,30,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2BBD00" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="One hour of study" HorizontalAlignment="Left" FontWeight="Light" Margin="0,3,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2BBD00" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="30 pushups" HorizontalAlignment="Left" FontWeight="Light" Margin="0,3,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2BBD00" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="A day of work" HorizontalAlignment="Left" FontWeight="Light" Margin="0,3,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FFBF0000" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="24" TextAlignment="Center" Text="Bad habits examples" HorizontalAlignment="Right" FontWeight="Light" Margin="0,30,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FFBF0000" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" HorizontalAlignment="Right" FontWeight="Light" Margin="0,3,0,0" >
+									<Run Text="Oversleeping"/>
+									<Run Text=" by 20 minutes"/>
+								</TextBlock>
+								<TextBlock TextWrapping="Wrap" Foreground="#FFBF0000" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="Eating a bucket of ice cream" HorizontalAlignment="Right" FontWeight="Light" Margin="0,3,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FFBF0000" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" HorizontalAlignment="Right" FontWeight="Light" Margin="0,3,0,0" >
+									<Run Text="Skip "/>
+									<Run Text="leg day"/>
+								</TextBlock>
+							</StackPanel>
+						</Grid>
+					</FlipViewItem>
+
+					<FlipViewItem IsSelected="True">
+						<Grid Margin="0">
+							<StackPanel Margin="10,30,10,0" Orientation="Vertical">
+								<Grid Margin="0" Height="100" HorizontalAlignment="Center">
+									<TextBlock FontSize="53.333" VerticalAlignment="Center" Margin="0" Text="&#xE10B;" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Tag="1" Foreground="#FF2781FF" />
+									<Ellipse HorizontalAlignment="Center" Height="100" Stroke="#FF2781FF" VerticalAlignment="Center" Width="100"/>
+								</Grid>
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2781FF" FontFamily="Segoe WP" VerticalAlignment="Top" Margin="0,30,0,0" FontSize="26.667" TextAlignment="Center" FontWeight="Light" >
+									<Run Text="A "/>
+									<Run FontStyle="Italic" Text="to-do "/>
+									<Run Text="is something you do once"/>
+								</TextBlock>
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2781FF" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="24" TextAlignment="Center" Text="Examples" HorizontalAlignment="Center" FontWeight="Light" Margin="0,30,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2781FF" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="Get cat food " HorizontalAlignment="Center" FontWeight="Light" Margin="0,3,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2781FF" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="Finish final project" HorizontalAlignment="Center" FontWeight="Light" Margin="0,3,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FF2781FF" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="Get new keys" HorizontalAlignment="Center" FontWeight="Light" Margin="0,3,0,0" />
+							</StackPanel>
+						</Grid>
+					</FlipViewItem>
+					<FlipViewItem Height="635" Width="395">
+						<Grid Margin="0">
+							<StackPanel Margin="10,30,10,0" Orientation="Vertical">
+								<Grid Margin="0" Height="100" HorizontalAlignment="Center">
+									<TextBlock FontSize="80" VerticalAlignment="Center" Margin="0,-20,0,0" Text="&#xE0B5;" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Tag="1" Foreground="#FFFF8000" />
+									<Ellipse HorizontalAlignment="Center" Height="100" Stroke="#FFFF8000" VerticalAlignment="Center" Width="100"/>
+								</Grid>
+								<TextBlock TextWrapping="Wrap" Foreground="#FFFF8000" FontFamily="Segoe WP" VerticalAlignment="Top" Margin="0,30,0,0" FontSize="26.667" TextAlignment="Center" FontWeight="Light" >
+									<Run FontStyle="Italic" Text="Rewards "/>
+									<Run Text="are things you can use your karma for."/>
+								</TextBlock>
+								<TextBlock TextWrapping="Wrap" Foreground="#FFFF8000" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="24" TextAlignment="Center" Text="Examples" HorizontalAlignment="Center" FontWeight="Light" Margin="0,30,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FFFF8000" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="One episode of Game of Thrones" HorizontalAlignment="Center" FontWeight="Light" Margin="0,3,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FFFF8000" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="2 hours of video games" HorizontalAlignment="Center" FontWeight="Light" Margin="0,3,0,0" />
+								<TextBlock TextWrapping="Wrap" Foreground="#FFFF8000" FontFamily="Segoe WP" VerticalAlignment="Top" FontSize="21.333" TextAlignment="Center" Text="Bucket of chicken" HorizontalAlignment="Center" FontWeight="Light" Margin="0,3,0,0" />
+							</StackPanel>
+							<Border BorderBrush="#FFBDBDBD" BorderThickness="0,1,0,0" Margin="0,0,0,80" VerticalAlignment="Bottom"/>
+						</Grid>
+					</FlipViewItem>
+
+				</FlipView>
+				<StackPanel x:Name="dots" HorizontalAlignment="Center" Height="30" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0,0,0,10">
+					<StackPanel.ChildrenTransitions>
+						<TransitionCollection>
+							<EntranceThemeTransition FromVerticalOffset="150" FromHorizontalOffset="0"/>
+						</TransitionCollection>
+					</StackPanel.ChildrenTransitions>
+					<Ellipse Stroke="#FF999999" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" Fill="#FFD9D9D9"/>
+					<Ellipse Stroke="#FF00E263" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,2.5,0,2.5"/>
+					<Ellipse Stroke="#FF0061FF" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,2.5,0,2.5"/>
+					<Ellipse Stroke="#FFFF8000" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,2.5,0,2.5"/>
+				</StackPanel>
+
+			</Grid>
+		</Flyout>
+	</Page.Resources>
+	<Page.BottomAppBar>
+		<CommandBar>
+			<AppBarButton x:Name="btnSettings" Icon="Setting" Label="Settings"/>
+			<AppBarButton x:Name="btnTutorial" Icon="Help" Label="Tutorial" Flyout="{StaticResource TutorialFlyout}"/>
+		</CommandBar>
+	</Page.BottomAppBar>
+   
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot"  Background="#FFE9E9E9">
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="snapped">
+    			<VisualStateGroup.Transitions>
+    				<VisualTransition GeneratedDuration="0">
+    					<Storyboard>
+    						<ColorAnimation Duration="0" To="#FFCD4D4D" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="LayoutRoot" d:IsOptimized="True"/>
+    					</Storyboard>
+    				</VisualTransition>
+    			</VisualStateGroup.Transitions>
+    		</VisualStateGroup>
+    	</VisualStateManager.VisualStateGroups>
+    	<Grid.ChildrenTransitions>
+    		<TransitionCollection>
+    			<EntranceThemeTransition FromVerticalOffset="40" FromHorizontalOffset="0"/>
+    		</TransitionCollection>
+    	</Grid.ChildrenTransitions>
+        <Grid x:Name="tile" Width="310" Height="150" Margin="45,-200,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock TextWrapping="Wrap" Grid.Column="1" FontSize="20" Margin="0,3,188,4" Foreground="White">
+                <Run Text="You have "></Run><Run Text="{Binding TotalCoins}" Foreground="#FF680900"/><Run Text=" karma."></Run>
+            </TextBlock>
+            <TextBlock Grid.Column="1" FontFamily="Segoe UI Symbol" FontSize="15"  Margin="107,3,0,126" Text=" RECENT CHANGES" Foreground="White"></TextBlock>
+            <ItemsControl Grid.Column="1"  ItemsSource="{Binding Logs}" Margin="116,24,0,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontFamily="Segoe UI Symbol" Text="{Binding}" FontSize="13" Foreground="#FFE3E3E3"></TextBlock>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+            <Grid Grid.Column="0" Background="red" Opacity="0" Margin="0,0,0.333,0"/>
+            <Grid Grid.Column="2" Background="red" Opacity="0" Margin="0.333,0,0,0"/>
+
+        </Grid>
+        <Grid x:Name="tileSmall" Width="150" Height="150" Margin="45,-380,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock TextWrapping="Wrap" Grid.Column="1" FontSize="28" Margin="0,3,0,4" Foreground="White">
+                <Run Text="You have "></Run><Run Text="{Binding TotalCoins}" Foreground="#FF680900"/><Run Text=" karma."></Run>
+            </TextBlock>
+            <Grid Grid.Column="0" Background="red" Opacity="0"/>
+            <Grid Grid.Column="2" Background="red" Opacity="0"/>
+        </Grid>
+
+
+        
+        <Grid Height="95" VerticalAlignment="Top">
+            <Grid x:Name="navigator" Margin="0,41,0,0">
+                <Grid.ColumnDefinitions>
+                	<ColumnDefinition/>
+                	<ColumnDefinition/>
+                	<ColumnDefinition/>
+                	<ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.ChildrenTransitions>
+                    <TransitionCollection>
+                    	<EntranceThemeTransition FromVerticalOffset="40" FromHorizontalOffset="0"/>
+                    </TransitionCollection>
+                </Grid.ChildrenTransitions>
+            	<Ellipse HorizontalAlignment="Center" Height="50" Margin="0" Stroke="#FF6E6E6E" VerticalAlignment="Center" Width="50"/>
+            	<Ellipse HorizontalAlignment="Center" Height="50" Margin="0" Stroke="#FF0E7C1A" VerticalAlignment="Center" Width="50" Grid.Column="1"/>
+            	<Ellipse HorizontalAlignment="Center" Height="50" Margin="0" Stroke="#FF0C465D" VerticalAlignment="Center" Width="50" Grid.Column="2"/>
+            	<Ellipse HorizontalAlignment="Center" Height="50" Margin="0" Stroke="#FFFFA700" VerticalAlignment="Center" Width="50" Grid.Column="3"/>
+                
+            </Grid>
+            <Grid Margin="0,41,0,0">
+                <Grid.ColumnDefinitions>
+                	<ColumnDefinition/>
+                	<ColumnDefinition/>
+                	<ColumnDefinition/>
+                	<ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.ChildrenTransitions>
+                    <TransitionCollection>
+                    	<EntranceThemeTransition FromVerticalOffset="40" FromHorizontalOffset="0"/>
+                    </TransitionCollection>
+                </Grid.ChildrenTransitions>
+            	<Grid Grid.Column="1" Width="20" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,-10">
+            		<Ellipse Stroke="#FF0E7C1A">
+            			<Ellipse.Fill>
+            				<SolidColorBrush Color="#FFE9E9E9"/>
+            			</Ellipse.Fill>
+            		</Ellipse>
+            		<TextBlock Text="{Binding Habits.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF9F9F9F"/>
+            	</Grid>
+            	<Grid Grid.Column="2" Width="20" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,-10">
+            		<Ellipse>
+            			<Ellipse.Fill>
+            				<SolidColorBrush Color="#FFE9E9E9"/>
+            			</Ellipse.Fill>
+            			<Ellipse.Stroke>
+            				<SolidColorBrush Color="#FF0C465D"/>
+            			</Ellipse.Stroke>
+            		</Ellipse>
+            		<TextBlock Text="{Binding ToDos.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF9F9F9F"/>
+            	</Grid>
+            	<Grid Grid.Column="3" Width="20" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,-10">
+            		<Ellipse Stroke="#FFFFA700">
+            			<Ellipse.Fill>
+            				<SolidColorBrush Color="#FFE9E9E9"/>
+            			</Ellipse.Fill>
+            		</Ellipse>
+            		<TextBlock Text="{Binding Rewards.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF9F9F9F"/>
+            	</Grid>
+            	<TextBlock FontSize="27" VerticalAlignment="Center" Margin="33.461,9.126,32.538,8.873" Text="&#xE13D;" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Tag="0" Foreground="#FF6E6E6E" />
+            	<TextBlock FontSize="27" VerticalAlignment="Center" Margin="33.462,8.626,32.538,9.373" Text="&#xE14C;" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Grid.Column="1" Tag="1" Foreground="#FF0E7C1A" />
+            	<TextBlock FontSize="27" VerticalAlignment="Center" Text="&#xE10B;" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Margin="33.462,9.126,32.538,8.873" Grid.Column="2" Tag="2" Foreground="#FF0C465D" />
+            	<TextBlock FontSize="45" VerticalAlignment="Center" Text="&#xE0B5;" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Margin="27.5,-7.844,27.5,1.843" Foreground="#FFFFA700" Grid.Column="3" Tag="3" />
+            </Grid>
+           
+        </Grid>
+        <Grid Margin="0,100,0,0">
+        	<Grid.ColumnDefinitions>
+        		<ColumnDefinition/>
+        		<ColumnDefinition/>
+        		<ColumnDefinition/>
+        		<ColumnDefinition/>
+        	</Grid.ColumnDefinitions>
+        	<Grid Margin="20,10,20,0">
+        		<TextBlock  Foreground="#FFF68F00" HorizontalAlignment="Center" Margin="0" Height="60" VerticalAlignment="Top" FontFamily="Segoe UI Symbol" >
+        			<Run FontSize="45" Text="&#xE1CB;"/>
+        			<Run FontSize="45"/>
+        			<Run FontSize="30" Text="{Binding TotalCoins}"/>
+        			<Run FontSize="30" Text="KARMA"/>
+        		</TextBlock>
+
+        		<local:Chart x:Name="chart" Margin="0,60,0,0" Height="100" VerticalAlignment="Top"/>
+        		<TextBlock FontFamily="Segoe UI Symbol" FontSize="20"  Margin="0,165,0,0" Text="&#xE121; RECENT"  Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        		<ScrollViewer Margin="0,200,0,0" >
+        			<StackPanel Orientation="Vertical" VerticalAlignment="Top">
+        				<ItemsControl  ItemsSource="{Binding Logs}" VerticalAlignment="Top" Width="341">
+        					<ItemsControl.ItemTemplate>
+        						<DataTemplate>
+        							<StackPanel Orientation="Vertical" Margin="0,10,0,0">
+        								<TextBlock FontFamily="Segoe UI" Text="{Binding Name}" FontSize="18.667" TextAlignment="{Binding LogAlignment}">
+        									<TextBlock.Foreground>
+        										<SolidColorBrush Color="{Binding LogColor}"/>
+        									</TextBlock.Foreground>
+        								</TextBlock>
+        								<TextBlock FontFamily="Segoe UI" Text="{Binding Time}" FontSize="13.333" TextAlignment="{Binding LogAlignment}">
+        									<TextBlock.Foreground>
+        										<SolidColorBrush Color="{Binding LogColor}"/>
+        									</TextBlock.Foreground>
+        								</TextBlock>
+        							</StackPanel>
+        						</DataTemplate>
+        					</ItemsControl.ItemTemplate>
+        					<ItemsControl.ItemsPanel>
+        						<ItemsPanelTemplate>
+        							<StackPanel/>
+        						</ItemsPanelTemplate>
+        					</ItemsControl.ItemsPanel>
+        				</ItemsControl>
+        			</StackPanel>
+        		</ScrollViewer>
+        		<TextBlock x:Name="clearRecents" FontFamily="Segoe UI Symbol" FontSize="20"  Margin="0,165,-1,0" Text="&#xE10A; CLEAR"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Tapped="clearRecentsTapped"/>
+        	</Grid>
+        	<local:HabitHub Margin="20,0" Grid.Column="1"/>
+        	<local:ToDoHub Margin="20,0" Grid.Column="2"/>
+        	<local:RewardHub Margin="20,0" Grid.Column="3"/>
+        </Grid>
+    </Grid>
+
+</Page>
