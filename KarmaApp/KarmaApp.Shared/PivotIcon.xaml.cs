@@ -24,27 +24,32 @@ namespace KarmaApp
             this.InitializeComponent();
         }
 
+
+        Brush _background;
         public Brush Background
         {
             get
             {
-                return smallCircle.Fill;
+                return _background;
             }
             set
             {
+                _background = value;
                 smallCircle.Fill = value;
                 bigCircle.Fill = value;
             }
         }
 
+        Brush _foreground;
         public Brush Foreground
         {
             get
             {
-                return smallCircle.Stroke;
+                return _foreground;
             }
             set
             {
+                _foreground = value;
                 smallCircle.Stroke = value;
                 bigCircle.Stroke = value;
                 txtIcon.Foreground = value;
@@ -58,8 +63,8 @@ namespace KarmaApp
             set
             {
                 _selected = value;
-                Brush color = smallCircle.Stroke;
-                Brush back = smallCircle.Fill;
+                Brush color = _foreground;
+                Brush back = _background;
                 if (value)
                 {
                     smallCircle.Stroke = back;

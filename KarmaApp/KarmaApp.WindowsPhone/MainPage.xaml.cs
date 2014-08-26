@@ -120,37 +120,41 @@ namespace KarmaApp
                 };
                 dt.Start();
 
-                /*hub.SectionsInViewChanged += (a, b) =>
+                hub.SectionsInViewChanged += (a, b) =>
                 {
                     int index = int.Parse(hub.SectionsInView.First().Tag as string) ;
-                    foreach (Ellipse t in navigator.Children) t.Fill = null;
-                    (navigator.Children[index] as Ellipse).Fill = new SolidColorBrush(Colors.LightGray);
+                    foreach (PivotIcon t in navigator.Children) t.Selected = false;
+                    //(navigator.Children[index] as PivotIcon).Selected = true;
                     switch (index)
                     {
                         case 0:
                             {
                                 header.Text = "Your information";
+                                pivotInfo.Selected = true;
                                 break;
                             }
                         case 1:
                             {
                                 header.Text = "Habits";
+                                pivotHabits.Selected = true;
                                 break;
                             }
                         case 2:
                             {
                                 header.Text = "To-do";
+                                pivotToDo.Selected = true;
                                 break;
                             }
                         case 3:
                             {
                                 header.Text = "Rewards";
+                                pivotRewards.Selected = true;
                                 break;
                             }
                     }
                 };
 
-                
+                /*
 
                 foreach (Ellipse t in navigator.Children)
                 {

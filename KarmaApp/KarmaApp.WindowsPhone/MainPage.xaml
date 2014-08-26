@@ -154,14 +154,26 @@
                     	<EntranceThemeTransition FromVerticalOffset="40" FromHorizontalOffset="0"/>
                     </TransitionCollection>
                 </Grid.ChildrenTransitions>
-            	<local:PivotIcon Count="{Binding Habits.Count}" HasCounter="False"  HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE13D;" Foreground="White">
+            	<local:PivotIcon x:Name="pivotInfo" Count="{Binding Rewards.Count}" HasCounter="False"  HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE13D;" Foreground="White">
             		<local:PivotIcon.Background>
             			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
             		</local:PivotIcon.Background>
             	</local:PivotIcon>
-            	<local:PivotIcon Count="{Binding Habits.Count}"  HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE14C;" Margin="25,2.083,25,1.917" Grid.Column="1" HasCounter="True" Foreground="#FF00C716"/>
-            	<local:PivotIcon HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE10B;" Margin="25,2.083,25,1.917" Grid.Column="2" HasCounter="True" Foreground="#FF008FFF"/>
-            	<local:PivotIcon HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE1CB;" Margin="25,2.083,25,1.917" Grid.Column="3" HasCounter="True" Foreground="#FFFFC500"/>
+            	<local:PivotIcon x:Name="pivotHabits" Count="{Binding Habits.Count}"  HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE14C;" Margin="25,2.083,25,1.917" Grid.Column="1" HasCounter="True" Foreground="#FF00C716">
+            		<local:PivotIcon.Background>
+            			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
+            		</local:PivotIcon.Background>
+            	</local:PivotIcon>
+            	<local:PivotIcon x:Name="pivotToDo" Count="{Binding ToDos.Count}"   HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE10B;" Margin="25,2.083,25,1.917" Grid.Column="2" HasCounter="True" Foreground="#FF008FFF">
+            		<local:PivotIcon.Background>
+            			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
+            		</local:PivotIcon.Background>
+            	</local:PivotIcon>
+            	<local:PivotIcon x:Name="pivotRewards" HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE1CB;" Margin="25,2.083,25,1.917" Grid.Column="3" HasCounter="True" Foreground="#FFFFC500">
+            		<local:PivotIcon.Background>
+            			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
+            		</local:PivotIcon.Background>
+            	</local:PivotIcon>
                 
             </Grid>
             <StackPanel x:Name="karmaPanel" Margin="0,6,12,0" Orientation="Horizontal" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="259" FlowDirection="RightToLeft">
