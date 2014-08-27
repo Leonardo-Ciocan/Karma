@@ -77,6 +77,8 @@ namespace KarmaApp
                 VisualStateManager.GoToState(this, "PointerUp", true);
                 AddCoins.Opacity = 1;
             };
+
+            
         }
 
         private void MenuFlyoutItem_Tapped(object sender, RoutedEventArgs e)
@@ -86,7 +88,7 @@ namespace KarmaApp
         }
         private void ToggleSwitch_Tapped(object sender, RoutedEventArgs e)
         {
-            //root.Background = new SolidColorBrush((DataContext as Habit).Positive ? Color.FromArgb(255, 101, 167, 101) : Color.FromArgb(255, 197, 36, 0));
+            root.Background = new SolidColorBrush((DataContext as Habit).Positive ? Color.FromArgb(255, 101, 167, 101) : Color.FromArgb(255, 197, 36, 0));
 
         }
 

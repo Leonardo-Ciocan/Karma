@@ -13,10 +13,10 @@
     
     Foreground="{StaticResource PhoneForegroundBrush}">
     <Page.BottomAppBar>
-        <CommandBar ClosedDisplayMode="Minimal">
-            <CommandBar.SecondaryCommands>
-                <AppBarButton Label="about+settings" Click="AppBarButton_Click_1"></AppBarButton>
-            </CommandBar.SecondaryCommands>
+        <CommandBar Foreground="White" Background="#FFFF9700">
+        	<AppBarButton x:Name="btnRecents" Label="clear recent" Click="clearRecents" Icon="Clear"/>
+        	<AppBarButton x:Name="btnReview" Label="review" Click="review" Icon="Shop"/>
+        	<AppBarButton Label="settings" Click="AppBarButton_Click_1" FontSize="13.333" Icon="Setting"/>
         </CommandBar>
     </Page.BottomAppBar>
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -73,7 +73,8 @@
                     <Grid>
                 		<TextBlock  Foreground="#FFF68F00" HorizontalAlignment="Center" Margin="0" Height="60" VerticalAlignment="Top" >
                 			<Run FontSize="45" FontFamily="Segoe UI Symbol" Text="&#xE1CB;"/>
-                			<Run FontSize="30" FontFamily="Segoe UI" Text="KARMA"/>
+                			<Run FontSize="30" FontFamily="Segoe UI" Text="{Binding TotalCoins}"/>
+                			<Run FontSize="30" FontFamily="Segoe UI" Text=" KARMA"/>
                 		</TextBlock>
 
                 		<local:Chart x:Name="chart" Margin="0,60,0,0" Height="100" VerticalAlignment="Top"/>
@@ -105,7 +106,6 @@
                 				</ItemsControl>
                 			</StackPanel>
                 		</ScrollViewer>
-                		<TextBlock x:Name="clearRecents" FontFamily="Segoe UI Symbol" FontSize="20"  Margin="0,165,-1,0" Text="&#xE10A; CLEAR"  Foreground="{StaticResource PhoneForegroundBrush}" HorizontalAlignment="Right" VerticalAlignment="Top" Tapped="clearRecentsTapped"/>
                 	</Grid>
                 </DataTemplate>
             </HubSection>
@@ -154,22 +154,22 @@
                     	<EntranceThemeTransition FromVerticalOffset="40" FromHorizontalOffset="0"/>
                     </TransitionCollection>
                 </Grid.ChildrenTransitions>
-            	<local:PivotIcon x:Name="pivotInfo" Count="{Binding Rewards.Count}" HasCounter="False"  HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE13D;" Foreground="White">
+            	<local:PivotIcon x:Name="pivotInfo" Count="{Binding Rewards.Count}" HasCounter="False"  HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE13D;" Foreground="White" Tag="0" Selected="True">
             		<local:PivotIcon.Background>
             			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
             		</local:PivotIcon.Background>
             	</local:PivotIcon>
-            	<local:PivotIcon x:Name="pivotHabits" Count="{Binding Habits.Count}"  HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE14C;" Margin="25,2.083,25,1.917" Grid.Column="1" HasCounter="True" Foreground="#FF00C716">
+            	<local:PivotIcon x:Name="pivotHabits" Count="{Binding Habits.Count}"  HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE14C;" Margin="25,2.083,25,1.917" Grid.Column="1" HasCounter="True" Foreground="#FF00C716" Tag="1">
             		<local:PivotIcon.Background>
             			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
             		</local:PivotIcon.Background>
             	</local:PivotIcon>
-            	<local:PivotIcon x:Name="pivotToDo" Count="{Binding ToDos.Count}"   HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE10B;" Margin="25,2.083,25,1.917" Grid.Column="2" HasCounter="True" Foreground="#FF008FFF">
+            	<local:PivotIcon x:Name="pivotToDo" Count="{Binding ToDos.Count}"   HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE10B;" Margin="25,2.083,25,1.917" Grid.Column="2" HasCounter="True" Foreground="#FF008FFF" Tag="2">
             		<local:PivotIcon.Background>
             			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
             		</local:PivotIcon.Background>
             	</local:PivotIcon>
-            	<local:PivotIcon x:Name="pivotRewards" HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE1CB;" Margin="25,2.083,25,1.917" Grid.Column="3" HasCounter="True" Foreground="#FFFFC500">
+            	<local:PivotIcon x:Name="pivotRewards" HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE1CB;" Margin="25,2.083,25,1.917" Grid.Column="3" HasCounter="True" Foreground="#FFFFC500" Tag="3">
             		<local:PivotIcon.Background>
             			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
             		</local:PivotIcon.Background>

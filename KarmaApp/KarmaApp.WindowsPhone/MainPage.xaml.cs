@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using Windows.UI.Notifications;
 using Windows.UI.Xaml.Shapes;
 using UIFragments;
+using Windows.UI.Text;
 
 namespace KarmaApp
 {
@@ -45,7 +46,7 @@ namespace KarmaApp
         {
 
 
-
+            
                 /*var toast = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02);
 
                 //toast.TextBodyWrap.Text = "You have a new message";
@@ -129,12 +130,18 @@ namespace KarmaApp
                     {
                         case 0:
                             {
+
+
                                 header.Text = "Your information";
+
+                                if (! ((this.BottomAppBar as CommandBar).PrimaryCommands.Contains(btnRecents)))
+                                    (this.BottomAppBar as CommandBar).PrimaryCommands.Add(btnRecents);
                                 pivotInfo.Selected = true;
                                 break;
                             }
                         case 1:
                             {
+                                (this.BottomAppBar as CommandBar).PrimaryCommands.Remove(btnRecents);
                                 header.Text = "Habits";
                                 pivotHabits.Selected = true;
                                 break;
@@ -154,9 +161,9 @@ namespace KarmaApp
                     }
                 };
 
-                /*
+                
 
-                foreach (Ellipse t in navigator.Children)
+                foreach (PivotIcon t in navigator.Children)
                 {
                     t.Tapped += (About, b) =>
                     {
@@ -164,8 +171,8 @@ namespace KarmaApp
                         int index = int.Parse(t.Tag as string);
                         var sections = hub.Sections[index];
                         hub.ScrollToSection(sections);
-                        foreach (Ellipse tx in navigator.Children) tx.Fill = null;
-                        t.Fill = new SolidColorBrush(Colors.LightGray);
+                        foreach (PivotIcon tx in navigator.Children) tx.Selected = false;
+                        t.Selected = true;
                         switch (index)
                         {
                             case 0:
@@ -190,8 +197,10 @@ namespace KarmaApp
                                 }
                         }
                     };
+
+                    header_Copy.Text = User.Current.TotalCoins.ToString();
                 
-                }*/
+                }
             }
         }
 
@@ -209,11 +218,20 @@ namespace KarmaApp
 
         public async void ChangeScore(int n)
         {
-            karmaPanel.Children.Insert(0,new TextBlock { FontSize = 22.667, Text = n.ToString()});
+            karmaPanel.Children.Insert(0,new TextBlock { FontSize = 20, Text = n.ToString() , FontWeight = FontWeights.Light , FontFamily = new FontFamily("Segoe WP")});
             karmaPanel.Children.Remove(karmaPanel.Children.ElementAt(1));
         }
 
-        private void clearRecentsTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+
+        private async void review(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=218bb6cb-bd37-4f36-8e17-3809298e8821"));
+            //Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store:REVIEW?PFN=27721LeonardoCiocan.Karma_55ag5hpdedhr2"));
+            //var mailto = new Uri("mailto:?to=leonardo.ciocan@outlook.com&subject=Karma feedback");
+            //await Windows.System.Launcher.LaunchUriAsync(mailto);
+        }
+
+        private void clearRecents(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             User.Current.Logs.Clear();
             User.Current.RaisePropertyChanged("TotalCoins");

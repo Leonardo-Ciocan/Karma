@@ -53,6 +53,18 @@ namespace KarmaApp
             };
 
 
+            Loaded += About_Loaded;
+        }
+
+        async void About_Loaded(object sender, RoutedEventArgs e)
+        
+        {
+            btnFeedback.Tapped += async (About, b) =>
+            {
+                var mailto = new Uri("mailto:?to=leonardo.ciocan@outlook.com&subject=Karma feedback");
+                await Windows.System.Launcher.LaunchUriAsync(mailto);
+            };
+            
         }
 
         void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)

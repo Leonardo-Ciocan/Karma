@@ -22,10 +22,12 @@
 
                 <StackPanel >
 
-                    <ToggleSwitch Header="Tile background" OffContent="Karma orange" OnContent="Transparent" IsOn="{Binding Transparent , Mode=TwoWay}"></ToggleSwitch>
-                    <TextBox x:Name="txtDefault" Margin="0,20,-0.333,0" TextWrapping="Wrap" Text="{Binding DefaultValue, Mode=TwoWay}" VerticalAlignment="Stretch" Header="Default karma value" InputScope="Number"/>
+                    <Button x:Name="btnFeedback" Content="&#xE119; Email feedback" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,-0.333,20" Background="#FFFF8000" BorderBrush="#FFCB5900" BorderThickness="1" Foreground="White" FontWeight="Normal" FontFamily="Segoe UI Symbol" FontSize="20"/>
+
+                    <ToggleSwitch Header="Tile background" OffContent="Karma orange" OnContent="Transparent" IsOn="{Binding Transparent, Mode=TwoWay}" FontWeight="Light"/>
+                    <TextBox x:Name="txtDefault" Margin="0,20,-0.333,0" TextWrapping="Wrap" Text="{Binding DefaultValue, Mode=TwoWay}" VerticalAlignment="Stretch" Header="Default karma value" InputScope="Number" BorderBrush="White" Background="White" BorderThickness="1"/>
                     <CheckBox Content="Delete todos on completion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,-0.333,0" IsChecked="{Binding DeleteOnCheck, Mode=TwoWay}"/>
-                    <Button x:Name="btnReset" Content="Reset all data" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0"/>
+                    <Button x:Name="btnReset" Content="Reset all data" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0" Background="#FF9A9A9A" BorderBrush="#FF565656" BorderThickness="1" Foreground="Black" FontWeight="Normal"/>
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="about">
@@ -56,6 +58,13 @@
             			<Run Text="- Delete todos when checked off"/>
             			<LineBreak/>
             			<Run Text="- Keyboard now dissapears properly"/>
+            			<LineBreak/>
+            			<Run Text="- new feedback and review buttons"/>
+            			<LineBreak/>
+            			<Run Text="- Fixed bugs with navigation"/>
+            			<LineBreak/>
+            			<Run Text="-"/>
+            			<Run Text=" Fixed karma counter"/>
             			<LineBreak/>
             			<Run/>
             			<LineBreak/>
