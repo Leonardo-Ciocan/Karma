@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -19,9 +20,12 @@ namespace KarmaApp
 {
     public sealed partial class PivotIcon : UserControl
     {
+        int id = 0;
+        static int idx = 0;
         public PivotIcon()
         {
             this.InitializeComponent();
+            id = ++idx;
         }
 
 
@@ -37,6 +41,7 @@ namespace KarmaApp
                 _background = value;
                 smallCircle.Fill = value;
                 bigCircle.Fill = value;
+                
             }
         }
 
@@ -53,6 +58,7 @@ namespace KarmaApp
                 smallCircle.Stroke = value;
                 bigCircle.Stroke = value;
                 txtIcon.Foreground = value;
+                animCircle.Fill = value;
             }
         }
 
@@ -62,6 +68,12 @@ namespace KarmaApp
             get { return _selected; }
             set
             {
+                bigCircle.Fill
+                     = null;
+                
+                if(value)Debug.WriteLine(id);
+                if (value) intro.Begin();
+                else outro.Begin();
                 _selected = value;
                 Brush color = _foreground;
                 Brush back = _background;
@@ -70,7 +82,7 @@ namespace KarmaApp
                     smallCircle.Stroke = back;
                     smallCircle.Fill = color;
                     bigCircle.Stroke = back;
-                    bigCircle.Fill = color;
+                    //bigCircle.Fill = color;
                     txtCount.Foreground = back;
                     txtIcon.Foreground = back;
                 }

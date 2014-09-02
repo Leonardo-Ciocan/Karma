@@ -1,4 +1,4 @@
-MainPackage=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.WindowsPhone\bin\Release\KarmaApp.WindowsPhone_1.1.0.10_Bundle\KarmaApp.WindowsPhone_1.1.0.10_AnyCPU.appx
-SymbolPackage=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.WindowsPhone\AppPackages\KarmaApp.WindowsPhone_1.1.0.10_Test\KarmaApp.WindowsPhone_1.1.0.10_AnyCPU.appxsym
-ResourcePack=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.WindowsPhone\bin\Release\KarmaApp.WindowsPhone_1.1.0.10_Bundle\KarmaApp.WindowsPhone_1.1.0.10_scale-100.appx
-ResourcePack=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.WindowsPhone\bin\Release\KarmaApp.WindowsPhone_1.1.0.10_Bundle\KarmaApp.WindowsPhone_1.1.0.10_scale-180.appx
+MainPackage=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.WindowsPhone\bin\Release\KarmaApp.WindowsPhone_1.1.0.15_Bundle\KarmaApp.WindowsPhone_1.1.0.15_AnyCPU.appx
+SymbolPackage=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.WindowsPhone\AppPackages\KarmaApp.WindowsPhone_1.1.0.15_Test\KarmaApp.WindowsPhone_1.1.0.15_AnyCPU.appxsym
+ResourcePack=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.WindowsPhone\bin\Release\KarmaApp.WindowsPhone_1.1.0.15_Bundle\KarmaApp.WindowsPhone_1.1.0.15_scale-100.appx
+ResourcePack=C:\Users\Leonardo\Documents\Visual Studio 2013\Projects\KarmaApp\KarmaApp\KarmaApp.WindowsPhone\bin\Release\KarmaApp.WindowsPhone_1.1.0.15_Bundle\KarmaApp.WindowsPhone_1.1.0.15_scale-180.appx

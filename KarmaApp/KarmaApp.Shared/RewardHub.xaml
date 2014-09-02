@@ -14,7 +14,7 @@
     d:DesignWidth="400">
 
 	<Grid>
-		<ScrollViewer x:Name="scroller"  Margin="0,79,0,0">
+		<ScrollViewer x:Name="scroller"  Margin="0,53,0,0">
 			<ItemsControl  ItemsSource="{Binding Rewards}" VerticalAlignment="Top">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate>

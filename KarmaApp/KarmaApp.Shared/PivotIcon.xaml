@@ -8,8 +8,27 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400" Width="50" Height="50">
+	<UserControl.Resources>
+		<Storyboard x:Name="intro">
+			<DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="animCircle">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="50"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="animCircle">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="50"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="outro">
+			<DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="animCircle">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="animCircle">
+				<SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
     
     <Grid>
+    	<Ellipse x:Name="animCircle" HorizontalAlignment="Center" Height="0" Stroke="#FF0E7C1A" VerticalAlignment="Center" Width="0" Fill="#FF0E7C1A"/>
     	<Ellipse x:Name="bigCircle" HorizontalAlignment="Center" Height="50" Margin="0" Stroke="#FF0E7C1A" VerticalAlignment="Center" Width="50"/>
     	<Grid x:Name="smallCircleContainer" Width="20" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,-10">
     		<Ellipse x:Name="smallCircle" Stroke="#FF0E7C1A">
@@ -19,7 +38,7 @@
     		</Ellipse>
     		<TextBlock x:Name="txtCount" Text="{Binding Habits.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF9F9F9F"/>
     	</Grid>
-    	<TextBlock x:Name="txtIcon" FontSize="27" VerticalAlignment="Center" Margin="0" Text="&#xE14C;" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Tag="1" Foreground="#FF0E7C1A" />
+    	<TextBlock x:Name="txtIcon" FontSize="27" VerticalAlignment="Center" Margin="0" Text="&#xE14C;" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center" Tag="1" Foreground="White" />
 
     </Grid>
 </UserControl>

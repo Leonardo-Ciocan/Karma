@@ -11,7 +11,7 @@
     d:DesignWidth="400" Height="50" Margin="0,12,0,0">
 
 
-    <Grid x:Name="root"  Background="#FF219E05">
+    <Grid x:Name="root"  Background="#FF00C716">
         
 
         <FlyoutBase.AttachedFlyout>
@@ -21,17 +21,17 @@
         </FlyoutBase.AttachedFlyout>
 
 
-        <Grid Margin="0,0,140,0" Height="50" VerticalAlignment="Top">
+        <Grid Margin="0,0,70,0" Height="50" VerticalAlignment="Top">
         	<StackPanel Margin="0" Orientation="Vertical" VerticalAlignment="Center">
         		<TextBlock TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" FontSize="17.333"  TextAlignment="Center" Foreground="White" FontFamily="Segoe UI"/>
         		<TextBlock TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" FontSize="16"  TextAlignment="Center" Margin="0,2,0,0" Foreground="White" FontFamily="Segoe UI"/>
         	</StackPanel>
         </Grid>
 
-        <Grid x:Name="btnEdit" HorizontalAlignment="Right" Margin="0,0,0,0" Width="70" Background="#00878787" Height="50" VerticalAlignment="Top">
+        <Grid x:Name="btnEdit" HorizontalAlignment="Right" Margin="0,0,0,0" Width="70" Background="#00878787" Height="50" VerticalAlignment="Top" Visibility="Collapsed">
             <TextBlock Text="" Foreground="White" FontFamily="Segoe UI Symbol" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Grid>
-        <Grid x:Name="AddCoins" HorizontalAlignment="Right" Margin="0,0,70,0" Width="70" Background="#66000000" Height="50" VerticalAlignment="Top">
+        <Grid x:Name="AddCoins" HorizontalAlignment="Right" Margin="0" Width="70" Background="#66000000" Height="50" VerticalAlignment="Top">
             <TextBlock Text="Done" Foreground="White" FontFamily="Segoe UI" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="TapStates">

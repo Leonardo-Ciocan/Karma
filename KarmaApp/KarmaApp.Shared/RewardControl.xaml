@@ -33,10 +33,10 @@
                 <MenuFlyoutItem Text="delete" Click="MenuFlyoutItem_Tapped"></MenuFlyoutItem>
             </MenuFlyout>
         </FlyoutBase.AttachedFlyout>
-        <Grid x:Name="btnEdit" HorizontalAlignment="Right" Margin="0,0,0,0" Width="70" Background="#3F878787" Height="50" VerticalAlignment="Top">
+        <Grid x:Name="btnEdit" HorizontalAlignment="Right" Margin="0,0,0,0" Width="70" Background="#3F878787" Height="50" VerticalAlignment="Top" Visibility="Collapsed">
             <TextBlock Text="" Foreground="White" FontFamily="Segoe UI Symbol" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Grid>
-        <Grid x:Name="AddCoins" HorizontalAlignment="Right" Margin="0,0,70,0" Width="70" Background="#66747474" Height="50" VerticalAlignment="Top">
+        <Grid x:Name="AddCoins" HorizontalAlignment="Right" Margin="0" Width="70" Background="#66747474" Height="50" VerticalAlignment="Top">
             <TextBlock Text="Claim" Foreground="White" FontFamily="Segoe UI Symbol" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         </Grid>
 
@@ -44,7 +44,7 @@
             <TextBox VerticalAlignment="Top" Text="{Binding Name , Mode=TwoWay}" Header="Name" ></TextBox>
             <TextBox  InputScope="Number"  VerticalAlignment="Top" Text="{Binding Value , Mode=TwoWay}" Header="How much karma is this worth" HorizontalAlignment="Left" ></TextBox>
         </StackPanel>
-        <Grid Margin="0,0,140,0" Height="50" VerticalAlignment="Top">
+        <Grid Margin="0,0,70,0" Height="50" VerticalAlignment="Top">
         	<StackPanel Margin="0" Orientation="Vertical" VerticalAlignment="Center">
         		<TextBlock TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" FontSize="17.333"  TextAlignment="Center" FontFamily="Segoe UI"/>
         		<TextBlock TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" FontSize="16"  TextAlignment="Center" FontFamily="Segoe UI" Margin="0,2,0,0"/>

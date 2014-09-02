@@ -29,6 +29,7 @@ namespace KarmaApp
         {
             AddCoins.Tapped += (a, b) =>
             {
+                b.Handled = true;
                 User.Current.TotalCoins += (DataContext as Habit).Value * ((DataContext as Habit).Positive ? 1:-1);
                 Log newLog = new Log
                 {
@@ -44,7 +45,7 @@ namespace KarmaApp
             //root.Background = new SolidColorBrush((DataContext as Habit).Positive ? Color.FromArgb(255, 101, 167, 101) : Color.FromArgb(255, 197, 36, 0));
 
 
-            btnEdit.Tapped += (c, d) =>
+            this.Tapped += (c, d) =>
             {
                 open = !open;
                 editor.Visibility = (open) ? Visibility.Visible : Visibility.Collapsed;

@@ -32,6 +32,7 @@ namespace KarmaApp
             this.Opacity = (DataContext as ToDo).Checked ? 0.15 : 1;
             check.Tapped += (a, b) =>
             {
+                b.Handled = true;
                 this.Opacity = (DataContext as ToDo).Checked ? 0.15 : 1;
                 Log newLog = new Log
                 {
@@ -52,7 +53,7 @@ namespace KarmaApp
 
             };
 
-            btnEdit.Tapped += (c, d) =>
+            this.Tapped += (c, d) =>
             {
                 open = !open;
                 editor.Visibility = (open) ? Visibility.Visible : Visibility.Collapsed;

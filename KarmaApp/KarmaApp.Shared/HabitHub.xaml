@@ -11,7 +11,7 @@
     >
 
 	<Grid>
-		<ScrollViewer x:Name="scroller"  Margin="0,80,0,0">
+		<ScrollViewer x:Name="scroller"  Margin="0,53,0,0">
 			<ItemsControl  ItemsSource="{Binding Habits}" VerticalAlignment="Top">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate>

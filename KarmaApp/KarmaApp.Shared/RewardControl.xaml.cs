@@ -23,6 +23,7 @@ namespace KarmaApp
         {
             AddCoins.Tapped += (a, b) =>
             {
+                b.Handled = true;
                 if (User.Current.TotalCoins - (DataContext as Reward).Value < 0) return;
                 User.Current.TotalCoins -= (DataContext as Reward).Value;
                 Log newLog = new Log
@@ -35,7 +36,7 @@ namespace KarmaApp
                 User.Current.Log(newLog);
             };
 
-            btnEdit.Tapped += (c, d) =>
+            this.Tapped += (c, d) =>
             {
                 open = !open;
                 editor.Visibility = (open) ? Visibility.Visible :Visibility.Collapsed;

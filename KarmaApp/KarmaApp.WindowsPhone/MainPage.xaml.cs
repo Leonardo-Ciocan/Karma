@@ -39,7 +39,13 @@ namespace KarmaApp
         }
 
 
-
+        List<SolidColorBrush> Colors = new List<SolidColorBrush>
+                {
+                    (SolidColorBrush)App.Current.Resources["gray"],
+                    (SolidColorBrush)App.Current.Resources["green"],
+                    (SolidColorBrush)App.Current.Resources["blue"],
+                    (SolidColorBrush)App.Current.Resources["orange"]
+                };
         public bool loaded = false;
         public static bool changes = false;
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -64,7 +70,7 @@ namespace KarmaApp
             }
             if (!loaded)
             {
-               
+                loaded = true;
 
                 ObservableCollection<Habit> ls = new ObservableCollection<Habit>();
                 User me = new User();
@@ -121,44 +127,19 @@ namespace KarmaApp
                 };
                 dt.Start();
 
+                int lastindex = 0;
+                //var LastState = hub.SectionsInView;
                 hub.SectionsInViewChanged += (a, b) =>
                 {
-                    int index = int.Parse(hub.SectionsInView.First().Tag as string) ;
-                    foreach (PivotIcon t in navigator.Children) t.Selected = false;
-                    //(navigator.Children[index] as PivotIcon).Selected = true;
-                    switch (index)
-                    {
-                        case 0:
-                            {
+                    /*if (LastState == null) LastState = hub.SectionsInView;
+                    var diff = hub.SectionsInView.Except(LastState);
+                    LastState = hub.SectionsInView;
+                    if (diff.Count() !=1) return;*/
 
-
-                                header.Text = "Your information";
-
-                                if (! ((this.BottomAppBar as CommandBar).PrimaryCommands.Contains(btnRecents)))
-                                    (this.BottomAppBar as CommandBar).PrimaryCommands.Add(btnRecents);
-                                pivotInfo.Selected = true;
-                                break;
-                            }
-                        case 1:
-                            {
-                                (this.BottomAppBar as CommandBar).PrimaryCommands.Remove(btnRecents);
-                                header.Text = "Habits";
-                                pivotHabits.Selected = true;
-                                break;
-                            }
-                        case 2:
-                            {
-                                header.Text = "To-do";
-                                pivotToDo.Selected = true;
-                                break;
-                            }
-                        case 3:
-                            {
-                                header.Text = "Rewards";
-                                pivotRewards.Selected = true;
-                                break;
-                            }
-                    }
+                    int index = int.Parse(hub.SectionsInView[0].Tag as string) ;
+                    
+                    if(lastindex != index) movedTo(index);
+                    lastindex = index;
                 };
 
                 
@@ -171,36 +152,49 @@ namespace KarmaApp
                         int index = int.Parse(t.Tag as string);
                         var sections = hub.Sections[index];
                         hub.ScrollToSection(sections);
-                        foreach (PivotIcon tx in navigator.Children) tx.Selected = false;
-                        t.Selected = true;
-                        switch (index)
-                        {
-                            case 0:
-                                {
-                                    header.Text = "Your information";
-                                    break;
-                                }
-                            case 1:
-                                {
-                                    header.Text = "Habits";
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    header.Text = "To-do";
-                                    break;
-                                }
-                            case 3:
-                                {
-                                    header.Text = "Rewards";
-                                    break;
-                                }
-                        }
+                        movedTo(index);
                     };
 
                     header_Copy.Text = User.Current.TotalCoins.ToString();
                 
                 }
+            }
+        }
+
+        public void movedTo(int index)
+        {
+            foreach (PivotIcon t in navigator.Children) t.Selected = false;
+            BottomAppBar.Background = Colors[index];
+            //(navigator.Children[index] as PivotIcon).Selected = true;
+            switch (index)
+            {
+                case 0:
+                    {
+
+
+                        header.Text = "Your information";
+
+                        pivotInfo.Selected = true;
+                        break;
+                    }
+                case 1:
+                    {
+                        header.Text = "Habits";
+                        pivotHabits.Selected = true;
+                        break;
+                    }
+                case 2:
+                    {
+                        header.Text = "To-do";
+                        pivotToDo.Selected = true;
+                        break;
+                    }
+                case 3:
+                    {
+                        header.Text = "Rewards";
+                        pivotRewards.Selected = true;
+                        break;
+                    }
             }
         }
 

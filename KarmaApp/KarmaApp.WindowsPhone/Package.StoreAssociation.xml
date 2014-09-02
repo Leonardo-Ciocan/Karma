@@ -196,13 +196,14 @@
     <MainPackageIdentityName>27721LeonardoCiocan.MyProgress8.1</MainPackageIdentityName>
     <MainPackageIdentityName>27721LeonardoCiocan.QuizMaker</MainPackageIdentityName>
     <MainPackageIdentityName>27721LeonardoCiocan.Skim</MainPackageIdentityName>
+    <MainPackageIdentityName>27721LeonardoCiocan.SolveX</MainPackageIdentityName>
     <MainPackageIdentityName>27721LeonardoCiocan.SpeedRead</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=4ac9610a-ba48-4b88-8e87-2529f25c4668">
     <PackageInfo>
       <OsMinVersion>6.3.0.0</OsMinVersion>
       <PackageArchitecture>neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>1.1.0.5</PackageMaxArchitectureVersion>
+      <PackageMaxArchitectureVersion>1.1.0.10</PackageMaxArchitectureVersion>
     </PackageInfo>
   </PackageInfoList>
 </StoreAssociation>
