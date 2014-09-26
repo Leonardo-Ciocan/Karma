@@ -58,14 +58,26 @@ namespace KarmaApp
         public User()
         {
             Current = this;
+
+
+
+           SearchedHabits = new ObservableCollection<Habit>();
+           SearchedToDos = new ObservableCollection<ToDo>();
+           SearchedRewards = new ObservableCollection<Reward>();
         }
 
         public ObservableCollection<Habit> Habits { get; set; }
+
+        public ObservableCollection<Habit> SearchedHabits { get; set; }
+        public ObservableCollection<ToDo> SearchedToDos { get; set; }
+        public ObservableCollection<Reward> SearchedRewards { get; set; }
         public ObservableCollection<Reward> Rewards { get; set; }
         public ObservableCollection<Log> Logs { get; set; }
         public ObservableCollection<ToDo> ToDos { get; set; }
 
         public ObservableCollection<int> KarmaHistory { get; set; }
+
+        
 
         public string _name;
         public string Name
@@ -212,6 +224,8 @@ namespace KarmaApp
             }
         }
 
+
+
         [Newtonsoft.Json.JsonIgnore]
         public bool DeleteOnCheck
         {
@@ -233,6 +247,29 @@ namespace KarmaApp
                 ApplicationData.Current.RoamingSettings.Values["DeleteOnCheck"] = value;
             }
         }
+
+        [Newtonsoft.Json.JsonIgnore]
+        public bool HideToDos
+        {
+            get
+            {
+                object k;
+                if (!ApplicationData.Current.RoamingSettings.Values.TryGetValue("HideToDos", out k))
+                {
+                    ApplicationData.Current.RoamingSettings.Values["HideToDos"] = false;
+                    return false;
+                }
+                else
+                {
+                    return (bool)k;
+                }
+            }
+            set
+            {
+                ApplicationData.Current.RoamingSettings.Values["HideToDos"] = value;
+            }
+        }
+
 
         [Newtonsoft.Json.JsonIgnore]
         public static bool Changes;

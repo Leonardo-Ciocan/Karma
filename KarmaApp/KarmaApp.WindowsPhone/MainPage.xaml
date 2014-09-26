@@ -19,8 +19,11 @@
         		<AppBarButton x:Name="btnReview" Label="review in store" Click="review"/>
         		<AppBarButton Label="about+settings" Click="AppBarButton_Click_1" FontSize="13.333"/>
         	</CommandBar.SecondaryCommands>
+        	<AppBarButton Icon="Find" Label="search" Click="search"/>
+        	<AppBarToggleButton Icon="List" Label="reorder"/>
         </CommandBar>
     </Page.BottomAppBar>
+    <!--LayoutRoot is the root grid where all page content is placed-->
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot"  Background="{StaticResource PhoneChromeBrush}">
         <Grid x:Name="tile" Width="310" Height="150" Margin="45,-200,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -34,23 +37,38 @@
                 <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
             <TextBlock TextWrapping="Wrap" Grid.Column="1" FontSize="20" Margin="0,3,188,4" Foreground="White">
-                <Run Text="You have "></Run><Run Text="{Binding TotalCoins}" Foreground="#FF680900"/><Run Text=" karma."></Run>
+                <Run Text="You have "/><Run Text="{Binding TotalCoins}" Foreground="#FF680900"/><Run Text=" karma."/>
             </TextBlock>
-            <TextBlock Grid.Column="1" FontFamily="Segoe UI Symbol" FontSize="15"  Margin="107,3,0,126" Text=" RECENT CHANGES" Foreground="White"></TextBlock>
-            <ItemsControl Grid.Column="1"  ItemsSource="{Binding Logs}" Margin="116,24,0,0">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock FontFamily="Segoe UI Symbol" Text="{Binding}" FontSize="13" Foreground="#FFE3E3E3"></TextBlock>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
+            <TextBlock Grid.Column="1" FontFamily="Segoe UI Symbol" FontSize="15"  Margin="107,3,0,126" Text="&#xE121; RECENT CHANGES" Foreground="White"/>
             <Grid Grid.Column="0" Background="red" Opacity="0" Margin="0,0,0.333,0"/>
             <Grid Grid.Column="2" Background="red" Opacity="0" Margin="0.333,0,0,0"/>
+            <ScrollViewer Margin="117,29,0,0" Grid.Column="1" >
+            	<StackPanel Orientation="Vertical" VerticalAlignment="Top">
+            		<ItemsControl  ItemsSource="{Binding Logs}" VerticalAlignment="Top">
+            			<ItemsControl.ItemTemplate>
+            				<DataTemplate>
+            					<StackPanel Orientation="Vertical" Margin="0,2,0,0">
+            						<TextBlock FontFamily="Segoe UI" Text="{Binding Name}" FontSize="12" TextAlignment="{Binding LogAlignment}">
+            							<TextBlock.Foreground>
+            								<SolidColorBrush Color="{Binding LogColor}"/>
+            							</TextBlock.Foreground>
+            						</TextBlock>
+            						<TextBlock FontFamily="Segoe UI" Text="{Binding Label}" FontSize="10.667" TextAlignment="{Binding LogAlignment}">
+            							<TextBlock.Foreground>
+            								<SolidColorBrush Color="{Binding LogColor}"/>
+            							</TextBlock.Foreground>
+            						</TextBlock>
+            					</StackPanel>
+            				</DataTemplate>
+            			</ItemsControl.ItemTemplate>
+            			<ItemsControl.ItemsPanel>
+            				<ItemsPanelTemplate>
+            					<StackPanel/>
+            				</ItemsPanelTemplate>
+            			</ItemsControl.ItemsPanel>
+            		</ItemsControl>
+            	</StackPanel>
+            </ScrollViewer>
 
         </Grid>
         <Grid x:Name="tileSmall" Width="150" Height="150" Margin="45,-380,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -62,7 +80,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock TextWrapping="Wrap" Grid.Column="1" FontSize="28" Margin="0,3,0,4" Foreground="White">
-                <Run Text="You have "></Run><Run Text="{Binding TotalCoins}" Foreground="#FF680900"/><Run Text=" karma."></Run>
+                <Run Text="You have "/><Run Text="{Binding TotalCoins}" Foreground="#FF680900"/><Run Text=" karma."/>
             </TextBlock>
             <Grid Grid.Column="0" Background="red" Opacity="0"/>
             <Grid Grid.Column="2" Background="red" Opacity="0"/>
@@ -116,7 +134,7 @@
 
                 <DataTemplate>
                     <Grid>
-                        <local:HabitHub></local:HabitHub>
+                        <local:HabitHub/>
                     </Grid>
                 </DataTemplate>
             </HubSection>
@@ -125,7 +143,7 @@
 
                 <DataTemplate>
                     <Grid>
-                        <local:ToDoHub></local:ToDoHub>
+                        <local:ToDoHub/>
                     </Grid>
                 </DataTemplate>
             </HubSection>
@@ -133,7 +151,7 @@
 
                 <DataTemplate>
                     <Grid>
-                        <local:RewardHub></local:RewardHub>
+                        <local:RewardHub/>
                     </Grid>
                 </DataTemplate>
             </HubSection>
@@ -171,7 +189,7 @@
             			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
             		</local:PivotIcon.Background>
             	</local:PivotIcon>
-            	<local:PivotIcon x:Name="pivotRewards" HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE1CB;" Margin="0" Grid.Column="3" HasCounter="True" Foreground="#FFFFC500" Tag="3">
+            	<local:PivotIcon x:Name="pivotRewards" HorizontalAlignment="Center" VerticalAlignment="Center" Icon="&#xE1CB;" Margin="0" Grid.Column="3" HasCounter="True" Foreground="#FFFFC500" Tag="3" Count="{Binding Rewards.Count}">
             		<local:PivotIcon.Background>
             			<SolidColorBrush Color="{ThemeResource PhoneChromeColor}"/>
             		</local:PivotIcon.Background>

@@ -29,6 +29,7 @@ namespace KarmaApp
         {
             AddCoins.Tapped += (a, b) =>
             {
+
                 b.Handled = true;
                 User.Current.TotalCoins += (DataContext as Habit).Value * ((DataContext as Habit).Positive ? 1:-1);
                 Log newLog = new Log
@@ -43,7 +44,7 @@ namespace KarmaApp
 
 
             //root.Background = new SolidColorBrush((DataContext as Habit).Positive ? Color.FromArgb(255, 101, 167, 101) : Color.FromArgb(255, 197, 36, 0));
-
+            root.Background = (DataContext as Habit).Positive ? App.Current.Resources["green"] as SolidColorBrush : new SolidColorBrush(Color.FromArgb(255, 197, 36, 0));
 
             this.Tapped += (c, d) =>
             {
@@ -74,12 +75,14 @@ namespace KarmaApp
 
             AddCoins.PointerReleased += (a, b) =>
             {
+                labelAdded.Text = (DataContext as Habit).Positive ? "Added  " : "Removed  ";
                 AddCoins.ReleasePointerCapture(b.Pointer);
                 VisualStateManager.GoToState(this, "PointerUp", true);
                 AddCoins.Opacity = 1;
+                done_anim.Begin();
             };
 
-            
+            this.Loaded -= HabitControl_Loaded;
         }
 
         private void MenuFlyoutItem_Tapped(object sender, RoutedEventArgs e)
@@ -89,7 +92,7 @@ namespace KarmaApp
         }
         private void ToggleSwitch_Tapped(object sender, RoutedEventArgs e)
         {
-            root.Background = new SolidColorBrush((DataContext as Habit).Positive ? Color.FromArgb(255, 101, 167, 101) : Color.FromArgb(255, 197, 36, 0));
+            root.Background = (DataContext as Habit).Positive ? App.Current.Resources["green"] as SolidColorBrush : new  SolidColorBrush( Color.FromArgb(255, 197, 36, 0));
 
         }
 

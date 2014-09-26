@@ -34,6 +34,8 @@ namespace KarmaApp
                     Time = DateTime.Now
                 };
                 User.Current.Log(newLog);
+
+                done_anim.Begin();
             };
 
             this.Tapped += (c, d) =>

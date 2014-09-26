@@ -18,8 +18,12 @@ using Windows.UI.Text;
 
 namespace KarmaApp
 {
+    
+        
+
     public partial class MainPage : Page
     {
+        HubSection todoHub;
         StatusBarProgressIndicator p = StatusBar.GetForCurrentView().ProgressIndicator;
         public MainPage()
         {
@@ -36,6 +40,14 @@ namespace KarmaApp
             //p.ShowAsync();
             StatusBar.GetForCurrentView().HideAsync();
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
+            Windows.Phone.UI.Input.HardwareButtons.BackPressed += (a, b) =>
+            {
+                if (Frame.CurrentSourcePageType != typeof(MainPage))
+                {
+                    b.Handled = true;
+                }
+                if (Frame.CanGoBack) Frame.GoBack();
+            };
         }
 
 
@@ -50,8 +62,7 @@ namespace KarmaApp
         public static bool changes = false;
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-
-
+            
             
                 /*var toast = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02);
 
@@ -67,9 +78,13 @@ namespace KarmaApp
             {
                 tile.Background = (User.Current.Transparent) ? null : new SolidColorBrush(Color.FromArgb(255, 246, 143, 0));
                 tileSmall.Background = (User.Current.Transparent) ? null : new SolidColorBrush(Color.FromArgb(255, 246, 143, 0));
+                RefreshTodoVisibility();
             }
+
+
             if (!loaded)
             {
+                todoHub = hub.Sections[2];
                 loaded = true;
 
                 ObservableCollection<Habit> ls = new ObservableCollection<Habit>();
@@ -79,8 +94,12 @@ namespace KarmaApp
                 me.Logs = new ObservableCollection<Log>();
                 me.ToDos = new ObservableCollection<ToDo>();
                 me.KarmaHistory = new ObservableCollection<int>();
+
                 User.Current = me;
                 User u = await me.Load();
+
+
+                
                 if (u != null)
                 {
                     DataContext = u;
@@ -91,6 +110,15 @@ namespace KarmaApp
                     User.Current = me;
                     DataContext = me;
                 }
+
+                me.SearchedHabits = new ObservableCollection<Habit>();
+                me.SearchedToDos = new ObservableCollection<ToDo>();
+                me.SearchedRewards = new ObservableCollection<Reward>();
+
+
+                RefreshTodoVisibility();
+
+                
 
                 User.Current.PropertyChanged += (a, b) =>
                 {
@@ -161,17 +189,72 @@ namespace KarmaApp
             }
         }
 
+        public void RefreshTodoVisibility()
+        {
+            
+            /*if (User.Current.HideToDos)
+            {
+                hub.Sections[3].Tag = "2";
+                pivotToDo.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                navigator.ColumnDefinitions[2].Width = new GridLength(0);
+                if (hub.Sections.Count != 3)
+                {
+                    hub.Sections.Remove(hub.Sections[2]);
+                }
+                
+            }
+            else
+            {
+                hub.Sections[2].Tag = "3";
+                pivotToDo.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                navigator.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+                if (hub.Sections.Count != 4)
+                {
+                    var last = hub.Sections.Last();
+                    hub.Sections.Remove(last);
+                    hub.Sections.Add(todoHub);
+                    hub.Sections.Add(last);
+                }
+            }*/
+
+            if (User.Current.HideToDos)
+            {
+                pivotRewards.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                navigator.ColumnDefinitions[3].Width = new GridLength(0);
+                if (hub.Sections.Count != 3)
+                {
+                    hub.Sections.Remove(hub.Sections[2]);
+                }
+                pivotToDo.Foreground = App.Current.Resources["orange"] as SolidColorBrush;
+                pivotToDo.Icon = "";
+            }
+            else
+            {
+                pivotRewards.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                navigator.ColumnDefinitions[3].Width = new GridLength(1, GridUnitType.Star);
+                if (hub.Sections.Count != 4)
+                {
+                    var last = hub.Sections.Last();
+                    hub.Sections.Remove(last);
+                    hub.Sections.Add(todoHub);
+                    hub.Sections.Add(last);
+                }
+                pivotToDo.Foreground = App.Current.Resources["blue"] as SolidColorBrush;
+                pivotToDo.Icon = "";
+            }
+        }
+
         public void movedTo(int index)
         {
             foreach (PivotIcon t in navigator.Children) t.Selected = false;
+
+            if (index == 2 && User.Current.HideToDos) index = 3;
             BottomAppBar.Background = Colors[index];
             //(navigator.Children[index] as PivotIcon).Selected = true;
             switch (index)
             {
                 case 0:
                     {
-
-
                         header.Text = "Your information";
 
                         pivotInfo.Selected = true;
@@ -192,7 +275,7 @@ namespace KarmaApp
                 case 3:
                     {
                         header.Text = "Rewards";
-                        pivotRewards.Selected = true;
+                        (User.Current.HideToDos ? pivotToDo : pivotRewards).Selected = true;
                         break;
                     }
             }
@@ -229,6 +312,11 @@ namespace KarmaApp
         {
             User.Current.Logs.Clear();
             User.Current.RaisePropertyChanged("TotalCoins");
+        }
+
+        private void search(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SearchPage));
         }
 
 

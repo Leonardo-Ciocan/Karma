@@ -5,7 +5,7 @@
     xmlns:local="using:KarmaApp">
     <Application.Resources>
         <SolidColorBrush x:Key="brand" Color="#FFF68F00"></SolidColorBrush>
-		<SolidColorBrush x:Key="green" Color="#FF00C716"></SolidColorBrush>
+		<SolidColorBrush x:Key="green" Color="#458B00"></SolidColorBrush>
 		<SolidColorBrush x:Key="gray" Color="#FFB2B2B2"></SolidColorBrush>
 		<SolidColorBrush x:Key="blue" Color="#FF008FFF"></SolidColorBrush>
 		<SolidColorBrush x:Key="orange" Color="#FFFFC500"></SolidColorBrush>

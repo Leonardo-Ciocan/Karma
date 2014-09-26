@@ -10,7 +10,34 @@
             xmlns:tel="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
 
     Height="50">
-
+	<UserControl.Resources>
+		<Storyboard x:Name="done_anim" AutoReverse="True">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="AddCoins_Copy">
+				<EasingDoubleKeyFrame KeyTime="0" Value="145"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="145">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0">
+					<EasingDoubleKeyFrame.EasingFunction>
+						<ExponentialEase EasingMode="EaseOut"/>
+					</EasingDoubleKeyFrame.EasingFunction>
+				</EasingDoubleKeyFrame>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimation Duration="0:0:0.3" To="70" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="AddCoins" d:IsOptimized="True">
+				<DoubleAnimation.EasingFunction>
+					<ExponentialEase EasingMode="EaseOut"/>
+				</DoubleAnimation.EasingFunction>
+			</DoubleAnimation>
+		</Storyboard>
+	</UserControl.Resources>
+	
     <Grid x:Name="root"  Background="#FFEAB000">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="TapStates">
@@ -38,7 +65,10 @@
         </Grid>
         <Grid x:Name="AddCoins" HorizontalAlignment="Right" Margin="0" Width="70" Background="#66747474" Height="50" VerticalAlignment="Top">
             <TextBlock Text="Claim" Foreground="White" FontFamily="Segoe UI Symbol" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        </Grid>
+		<Grid.RenderTransform>
+        		<CompositeTransform TranslateX="0"/>
+        	</Grid.RenderTransform>
+	    </Grid>
 
         <StackPanel x:Name="editor" Margin="10,50,10,0" Visibility="Collapsed">
             <TextBox VerticalAlignment="Top" Text="{Binding Name , Mode=TwoWay}" Header="Name" ></TextBox>
@@ -48,6 +78,31 @@
         	<StackPanel Margin="0" Orientation="Vertical" VerticalAlignment="Center">
         		<TextBlock TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" FontSize="17.333"  TextAlignment="Center" FontFamily="Segoe UI"/>
         		<TextBlock TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" FontSize="16"  TextAlignment="Center" FontFamily="Segoe UI" Margin="0,2,0,0"/>
+        	</StackPanel>
+        </Grid>
+        <Grid x:Name="AddCoins_Copy" HorizontalAlignment="Right" Margin="0" Width="145" Background="#66000000" Height="50" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+        	<Grid.RenderTransform>
+        		<CompositeTransform TranslateX="145"/>
+        	</Grid.RenderTransform>
+        	<VisualStateManager.VisualStateGroups>
+        		<VisualStateGroup x:Name="TapStates1">
+        			<VisualState x:Name="Normal1" />
+        			<VisualState x:Name="PointerDown1">
+        				<Storyboard>
+        					<PointerDownThemeAnimation TargetName="AddCoins" />
+        				</Storyboard>
+        			</VisualState>
+        			<VisualState x:Name="PointerUp1">
+        				<Storyboard>
+        					<PointerUpThemeAnimation TargetName="AddCoins" />
+        				</Storyboard>
+        			</VisualState>
+        		</VisualStateGroup>
+        	</VisualStateManager.VisualStateGroups>
+        	<StackPanel Margin="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        		<TextBlock Text="Removed " Foreground="White" FontFamily="Segoe UI" FontSize="13.333" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        		<TextBlock Text="{Binding Value}" Foreground="White" FontFamily="Segoe UI" FontSize="13.333" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0.133,0,-0.134"/>
+        		<TextBlock Text=" karma" Foreground="White" FontFamily="Segoe UI" FontSize="13.333" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0.133,0,-0.134"/>
         	</StackPanel>
         </Grid>
     </Grid>

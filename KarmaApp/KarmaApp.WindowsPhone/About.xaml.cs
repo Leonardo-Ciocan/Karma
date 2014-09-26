@@ -27,7 +27,7 @@ namespace KarmaApp
         public About()
         {
             this.InitializeComponent();
-            Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            //Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
             /*Windows.Phone.UI.Input.HardwareButtons.BackPressed += (a, b) =>
             {
 
